@@ -1,0 +1,29 @@
+function init(self)
+	msg.post("/controller", "acquire_input_focus")
+
+	for	i=1,50 do factory.create("#food_factory") end
+
+	msg.post("@render:", "clear_color", { color = vmath.vector4(0.75, 0.7, 0.7, 0) } )
+end
+function update(self, dt)
+	
+end
+
+function on_message(self, message_id, message, sender)
+	if message_id == hash("spawn_food") then
+		factory.create("#food_factory")
+	end
+end
+
+function on_input(self, action_id, action)
+	if action_id == hash("left") then
+		msg.post("player#player_script", "horizontal", { dir = -1 } )
+	elseif action_id == hash("right") then
+		msg.post("player#player_script", "horizontal", { dir = 1 } )
+	elseif action_id == hash("up") then
+		msg.post("player#player_script", "vertical", { dir = 1 } )
+	elseif action_id == hash("down") then
+		msg.post("player#player_script", "vertical", { dir = -1 } )
+	end
+
+end

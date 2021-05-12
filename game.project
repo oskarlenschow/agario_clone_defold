@@ -1,0 +1,24 @@
+[bootstrap]
+main_collection = /main/main.collectionc
+render = /main/test/custom.renderc
+
+[script]
+shared_state = 1
+
+[display]
+width = 1000
+height = 500
+
+[android]
+input_method = HiddenInputField
+
+[project]
+title = agario_clone
+
+[physics]
+allow_dynamic_transforms = 1
+
+[graphics]
+default_texture_min_filter = linear
+default_texture_mag_filter = linear
+

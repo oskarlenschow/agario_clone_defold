@@ -1,0 +1,11 @@
+function init(self)
+	local pos = vmath.vector3(math.random() * 460 + 20,
+		math.random() * 460 + 20, 0)
+	go.set_position(pos)
+	go.set_scale(vmath.vector3(0.1, 0.1, 0.1))
+end
+function on_message(self, message_id, message, sender)
+	if message_id == hash("contact_point_response") then
+		go.delete(true)
+	end
+end
